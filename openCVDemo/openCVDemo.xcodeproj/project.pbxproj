@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		358FFB79213536D500BF6775 /* 2.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 358FFB78213536D500BF6775 /* 2.JPG */; };
 		4E5205489FB43B2CCB3CFC94 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA341D7C15957E16A8C69F01 /* libPods.a */; };
 		F1720C411D759C2000AD7BD5 /* UIImage+OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = F1720C401D759C2000AD7BD5 /* UIImage+OpenCV.mm */; };
 		F17617331D732D440024AD32 /* DetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = F17617321D732D440024AD32 /* DetailController.m */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		358FFB78213536D500BF6775 /* 2.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.JPG; sourceTree = "<group>"; };
 		39C6FB2132A4A5C4B00BC9D0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		65E6F05109687A38607AA932 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		CA341D7C15957E16A8C69F01 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,6 +106,7 @@
 				F1873F0B1D716CC80053967D /* ViewController.m */,
 				F17617311D732D440024AD32 /* DetailController.h */,
 				F17617321D732D440024AD32 /* DetailController.m */,
+				358FFB78213536D500BF6775 /* 2.JPG */,
 				F1873F0D1D716CC80053967D /* Main.storyboard */,
 				F1873F101D716CC80053967D /* Assets.xcassets */,
 				F1873F121D716CC80053967D /* LaunchScreen.storyboard */,
@@ -184,6 +187,7 @@
 			files = (
 				F1873F141D716CC80053967D /* LaunchScreen.storyboard in Resources */,
 				F1873F111D716CC80053967D /* Assets.xcassets in Resources */,
+				358FFB79213536D500BF6775 /* 2.JPG in Resources */,
 				F1873F0F1D716CC80053967D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

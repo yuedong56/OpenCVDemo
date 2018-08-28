@@ -11,7 +11,29 @@
 #import <opencv2/imgproc/types_c.h>
 #import <opencv2/imgcodecs/ios.h>
 
+
 @interface UIImage (OpenCV)
+
+
+@property(nonatomic,readonly) cv::Mat CVMat;
+
+@property(nonatomic,readonly) cv::Mat CVGrayscaleMat;
+
+
++(UIImage *)imageWithCVMat:(const cv::Mat&)cvMat;
+
+-(id)initWithCVMat:(const cv::Mat&)cvMat;
+
+
+
+
+
+
+
+
+
+
+
 
 /**
  *  均值模糊
@@ -54,5 +76,7 @@
 + (UIImage *) cartoonWithImage:(UIImage *) image;
 
 //+ (UIImage *) erosionWithImage:(UIImage *) image;
+
+
 
 @end
