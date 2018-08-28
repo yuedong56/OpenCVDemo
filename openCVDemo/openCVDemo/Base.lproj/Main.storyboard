@@ -1,9 +1,13 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GgN-vd-nHg">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GgN-vd-nHg">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--OpenCVDemo-->
@@ -15,18 +19,18 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IQ6-fW-xDN">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IQ6-fW-xDN">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellid" id="Axh-pG-lll">
-                                        <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellid" id="Axh-pG-lll">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Axh-pG-lll" id="NKR-Rm-UjR">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -37,7 +41,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="IQ6-fW-xDN" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="9bB-QW-ZIw"/>
                             <constraint firstItem="IQ6-fW-xDN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="QZV-4x-cZd"/>
@@ -64,20 +68,20 @@
                         <viewControllerLayoutGuide type="bottom" id="NJC-ui-MHU"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Bfp-K4-KFo">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="a" translatesAutoresizingMaskIntoConstraints="NO" id="QXD-mR-2iq">
-                                <rect key="frame" x="20" y="84" width="120" height="516"/>
+                                <rect key="frame" x="16" y="84" width="120" height="583"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="p0Y-Bh-OPX"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aFy-gc-XLs">
-                                <rect key="frame" x="160" y="84" width="420" height="516"/>
+                                <rect key="frame" x="156" y="84" width="203" height="583"/>
                             </imageView>
                             <slider hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="BSR-54-qr5">
-                                <rect key="frame" x="198" y="550" width="204" height="31"/>
+                                <rect key="frame" x="85.5" y="617" width="204" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="4eJ-pM-XMB"/>
                                     <constraint firstAttribute="width" constant="200" id="OLG-5U-4gg"/>
@@ -87,14 +91,14 @@
                                 </connections>
                             </slider>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="uzD-QI-RXe">
-                                <rect key="frame" x="360" y="290" width="20" height="20"/>
+                                <rect key="frame" x="247.5" y="323.5" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="VGP-wU-wt0"/>
                                     <constraint firstAttribute="width" constant="20" id="VSk-pv-GpC"/>
                                 </constraints>
                             </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="NJC-ui-MHU" firstAttribute="top" secondItem="BSR-54-qr5" secondAttribute="bottom" constant="20" id="0Me-jH-kAs"/>
                             <constraint firstItem="QXD-mR-2iq" firstAttribute="top" secondItem="oDX-g5-78d" secondAttribute="bottom" constant="20" id="1BA-aO-r5d"/>
@@ -109,7 +113,13 @@
                             <constraint firstItem="aFy-gc-XLs" firstAttribute="top" secondItem="QXD-mR-2iq" secondAttribute="top" id="udD-3U-I4E"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="URf-JZ-Bhd"/>
+                    <navigationItem key="navigationItem" id="URf-JZ-Bhd">
+                        <barButtonItem key="rightBarButtonItem" title="相册" id="Ikx-b5-4AI">
+                            <connections>
+                                <action selector="openPhotoAsset:" destination="9UW-Nq-kVf" id="nJ7-mu-lhb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="activityView" destination="uzD-QI-RXe" id="jkH-eN-K3q"/>
                         <outlet property="normalView" destination="QXD-mR-2iq" id="Vci-bh-Jek"/>
@@ -126,7 +136,7 @@
             <objects>
                 <navigationController id="GgN-vd-nHg" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aAl-Ys-BXo">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>

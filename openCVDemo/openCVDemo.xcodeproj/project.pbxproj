@@ -158,7 +158,7 @@
 				TargetAttributes = {
 					F1873F001D716CC80053967D = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 5N8LXT5RPD;
+						DevelopmentTeam = ET468ENYPG;
 					};
 				};
 			};
@@ -365,6 +365,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LIBRARY = "libc++";
+				DEVELOPMENT_TEAM = ET468ENYPG;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -383,6 +384,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LIBRARY = "libc++";
+				DEVELOPMENT_TEAM = ET468ENYPG;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

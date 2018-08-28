@@ -9,7 +9,8 @@
 #import "DetailController.h"
 #import "UIImage+OpenCV.h"
 
-@interface DetailController ()
+
+@interface DetailController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (nonatomic,strong) NSTimer *timer;
 @property (weak, nonatomic) IBOutlet UIImageView *normalView;
 @property (weak, nonatomic) IBOutlet UISlider *slideView;
@@ -19,6 +20,44 @@
 @end
 
 @implementation DetailController
+
+- (IBAction)openPhotoAsset:(id)sender {
+
+    UIImagePickerController *vc = [[UIImagePickerController alloc] init];
+    vc.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    vc.delegate = self;
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
+#pragma mark - UIImagePickerControllerDelegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
+{
+    [picker dismissViewControllerAnimated:YES completion:^{
+        UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+        NSLog(@"image == %@", image);
+        
+        float w = 600;
+        float h = w*image.size.height/image.size.width;
+        // 创建一个bitmap的context，并把它设置成为当前正在使用的context
+        UIGraphicsBeginImageContext(CGSizeMake(w, h));
+        // 绘制改变大小的图片
+        [image drawInRect:CGRectMake(0, 0, w, h)];
+        // 从当前context中创建一个改变大小后的图片
+        UIImage * scaledImage = UIGraphicsGetImageFromCurrentImageContext();
+        // 使当前的context出堆栈
+        UIGraphicsEndImageContext();
+        //返回新的改变大小后的图片
+        
+        scaledImage = [self aaa:scaledImage];
+        self.resultView.image = [self imageToTransparent:scaledImage color:[UIColor redColor]];
+    }];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [picker dismissViewControllerAnimated:YES completion:^{
+    }];
+}
 
 -(void)viewDidLoad {
     [super viewDidLoad];
@@ -67,6 +106,7 @@
             case 7:
 //                resalutImage = [UIImage cartoonWithImage:_normalView.image];
                 resalutImage = [self aaa:[UIImage imageNamed:@"2.JPG"]];
+                resalutImage = [self imageToTransparent:resalutImage color:[UIColor redColor]];
 
                 break;
         }
@@ -122,7 +162,7 @@
 
 //颜色替换
 
-- (UIImage*) imageToTransparent:(UIImage*) image
+- (UIImage*) imageToTransparent:(UIImage*) image color:(UIColor *)color
 {
     // 分配内存
     const int imageWidth = image.size.width;
@@ -140,31 +180,32 @@
     uint32_t* pCurPtr = rgbImageBuf;
     for (int i = 0; i < pixelNum; i++, pCurPtr++)
     {
-        //把绿色变成黑色，把背景色变成透明
-        if ((*pCurPtr & 0x65815A00) == 0x65815a00)    // 将背景变成透明
-        {
-            uint8_t* ptr = (uint8_t*)pCurPtr;
-            ptr[0] = 0;
-        }
-        else if ((*pCurPtr & 0x00FF0000) == 0x00ff0000)    // 将绿色变成黑色
-        {
-            uint8_t* ptr = (uint8_t*)pCurPtr;
-            ptr[3] = 0; //0~255
-            ptr[2] = 0;
-            ptr[1] = 0;
-        }
-        else if ((*pCurPtr & 0xFFFFFF00) == 0xffffff00)    // 将白色变成透明
-        {
-            uint8_t* ptr = (uint8_t*)pCurPtr;
-            ptr[0] = 0;
-        }
-        else
-        {
-            // 改成下面的代码，会将图片转成想要的颜色
-            uint8_t* ptr = (uint8_t*)pCurPtr;
-            ptr[3] = 0; //0~255
-            ptr[2] = 0;
-            ptr[1] = 0;
+        //        //去除白色...将0xFFFFFF00换成其它颜色也可以替换其他颜色。
+        //        if ((*pCurPtr & 0xFFFFFF00) >= 0xffffff00) {
+        //
+        //            uint8_t* ptr = (uint8_t*)pCurPtr;
+        //            ptr[0] = 0;
+        //        }
+        //接近白色
+        //将像素点转成子节数组来表示---第一个表示透明度即ARGB这种表示方式。ptr[0]:透明度,ptr[1]:R,ptr[2]:G,ptr[3]:B
+        //分别取出RGB值后。进行判断需不需要设成透明。
+        float min = 172;
+        float max = 173;
+//        float g = r;
+//        float b = r;
+        uint8_t* ptr = (uint8_t*)pCurPtr;
+//        if (ptr[1] > min && ptr[1] <= max &&
+//            ptr[2] > min && ptr[2] <= max &&
+//            ptr[3] > min && ptr[3] <= max) {
+        if (ptr[1] == max &&
+            ptr[2] == max &&
+            ptr[3] == max) {
+            //当RGB值都大于240则比较接近白色的都将透明度设为0.-----即接近白色的都设置为透明。某些白色背景具有杂质就会去不干净，用这个方法可以去干净
+            //            ptr[0] = 1;//透明度
+            const CGFloat *components = CGColorGetComponents(color.CGColor);
+            ptr[3] = components[0]*255;//b
+            ptr[2] = components[1]*255;//g
+            ptr[1] = components[2]*255;//r
         }
     }
     // 将内存转成image
